@@ -4,22 +4,31 @@ body{
   background-color: rgb(82, 82, 82,0.3);
   text-transform: capitalize;
 }
+
 .header-container {
   width: 100%;
-   border-radius: 20px;
+  border-radius: 20px;
   padding: 60px 0;
   background-color: rgb(17, 16, 16);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideDown 1.3s ease-out forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Logo styling */
 .logo {
   width: 120px;
   height: 120px;
-   
   border-radius: 50%;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideLeft 0.8s ease-out 0.5s forwards;
 }
 
 .logo:hover {
@@ -38,4 +47,48 @@ body{
   padding: 30px;
   text-shadow: 0px 0px 2px rgb(255, 255, 255);
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideRight 1.5s ease-out 1s forwards;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .header-container {
+    border-radius: 0;
+  }
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

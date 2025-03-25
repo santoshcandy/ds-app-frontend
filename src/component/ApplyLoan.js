@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "animate.css";
 import "../style/applyloan.css"
+import { API_URL } from "../Config";
 const ApplyLoan = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -48,7 +49,7 @@ const ApplyLoan = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/manage/client/apply/", formData);
+      const response = await axios.post( `${API_URL}client/apply/`, formData);
       console.log("Loan application submitted:", response.data);
       setSuccess(true);
       setFormData({

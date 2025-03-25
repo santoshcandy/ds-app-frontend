@@ -9,9 +9,14 @@ import {
   Grid,
   Box,
   Snackbar,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import UploadClientDocuments from "./UploadClientDocuments";
 import BottomNav from "./BottomNav";
+import { API_URL } from "../Config";
 
 const ClientDetails = () => {
   const { id } = useParams(); // Get client ID from URL
@@ -25,7 +30,7 @@ const ClientDetails = () => {
   // Fetch client details
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/manage/clients/${id}/`, {
+      .get(`${API_URL}clients/${id}/`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then((response) => {
@@ -46,7 +51,7 @@ const ClientDetails = () => {
   // Update client details
   const handleUpdate = () => {
     axios
-      .patch(`http://127.0.0.1:8000/manage/clients/${id}/update/`, client, {
+      .patch(`${API_URL}clients/${id}/update/`, client, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(() => {
@@ -63,7 +68,7 @@ const ClientDetails = () => {
   // Request approval
   const handleApprovalRequest = () => {
     axios
-      .post(`http://127.0.0.1:8000/manage/clients/${id}/request-approval/`, {}, {
+      .post(`${API_URL}clients/${id}/request-approval/`, {}, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(() => {
@@ -81,45 +86,77 @@ const ClientDetails = () => {
 
   return (
     <>
-    <Container maxWidth="md">
-      <Typography variant="h4" gutterBottom>
-        Client Details - {client.name}
-      </Typography>
+      <Container maxWidth="md">
+        <Typography variant="h4" gutterBottom>
+          Client Details - {client.name}
+        </Typography>
 
-      <Grid container spacing={2}>
-        {Object.keys(client).map((key) =>
-          key !== "id" && key !== "created_at" && key !== "assigned_employee" ? (
-            <Grid item xs={12} sm={6} key={key}>
-              <TextField
-                fullWidth
-                name={key}
-                label={key.replace("_", " ").toUpperCase()}
-                value={client[key] || ""}
-                onChange={handleChange}
-                variant="outlined"
-              />
-            </Grid>
-          ) : null
-        )}
-      </Grid>
-        <UploadClientDocuments clientId={id}/>
-      <Box mt={3} mb={10}>
-        <Button variant="contained" color="primary" onClick={handleUpdate} sx={{ mr: 2 }}>
-          Update Client
-        </Button>
-        <Button variant="contained" color="secondary" onClick={handleApprovalRequest}>
-          Request Approval
-        </Button>
-      </Box>
+        <Grid container spacing={2}>
+          {Object.keys(client).map((key) =>
+            key !== "id" && key !== "created_at" && key !== "assigned_employee" ? (
+              <Grid item xs={12} sm={6} key={key}>
+                {key === "married_status" ? (
+                  <FormControl fullWidth variant="outlined">
+                    <InputLabel>Married Status</InputLabel>
+                    <Select
+                      name="married_status"
+                      value={client.married_status || ""}
+                      onChange={handleChange}
+                      label="Married Status"
+                    >
+                      <MenuItem value="single">Single</MenuItem>
+                      <MenuItem value="married">Married</MenuItem>
+                    </Select>
+                  </FormControl>
+                ) : key === "approval_status" ? (
+                  <FormControl fullWidth variant="outlined">
+                    <InputLabel>Approval Status</InputLabel>
+                    <Select
+                      name="approval_status"
+                      value={client.approval_status || ""}
+                      onChange={handleChange}
+                      label="Approval Status"
+                    >
+                      <MenuItem value="pending">Pending</MenuItem>
+                      <MenuItem value="proceed">Proceed</MenuItem>
+                      <MenuItem value="rejected">Rejected</MenuItem>
+                      <MenuItem value="approved">Approved</MenuItem>
+                    </Select>
+                  </FormControl>
+                ) : (
+                  <TextField
+                    fullWidth
+                    name={key}
+                    label={key.replace("_", " ").toUpperCase()}
+                    value={client[key] || ""}
+                    onChange={handleChange}
+                    variant="outlined"
+                  />
+                )}
+              </Grid>
+            ) : null
+          )}
+        </Grid>
 
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={3000}
-        onClose={() => setOpenSnackbar(false)}
-        message={message}
-      />
-    </Container>
-  <BottomNav/>
+        <UploadClientDocuments clientId={id} />
+
+        <Box mt={3} mb={10}>
+          <Button variant="contained" color="primary" onClick={handleUpdate} sx={{ mr: 2 }}>
+            Update Client
+          </Button>
+          <Button variant="contained" color="secondary" onClick={handleApprovalRequest}>
+            Request Approval
+          </Button>
+        </Box>
+
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={3000}
+          onClose={() => setOpenSnackbar(false)}
+          message={message}
+        />
+      </Container>
+      <BottomNav />
     </>
   );
 };

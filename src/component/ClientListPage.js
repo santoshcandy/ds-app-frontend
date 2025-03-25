@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"; // ✅ Added useNavigate
 import axios from "axios";
+import { API_URL } from "../Config";
 
 const ClientListPage = () => {
   const { status } = useParams(); // ✅ Read the status from the URL
@@ -8,7 +9,7 @@ const ClientListPage = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+  // const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
   const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {

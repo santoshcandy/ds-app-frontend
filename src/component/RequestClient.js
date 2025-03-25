@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../style/requestclient.css"; // Make sure the CSS file path is correct
+import { API_URL } from "../Config";
 
 const RequestClient = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+  // const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
   const accessToken = localStorage.getItem("accessToken");
   const navigate = useNavigate();
 

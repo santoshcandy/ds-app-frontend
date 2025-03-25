@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../Config";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/manage/login/", formData);
+      const response = await axios.post( `${API_URL}login/`, formData);
 
       if (response.data.tokens) {
         // Store tokens & user details in localStorage

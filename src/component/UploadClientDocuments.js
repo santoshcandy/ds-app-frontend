@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { API_URL } from "../Config";
+import "../style/uploaddocs.css"
 const UploadClientDocuments = ({ clientId }) => {
   const [files, setFiles] = useState({});
   const [existingDocs, setExistingDocs] = useState({});
@@ -8,7 +9,7 @@ const UploadClientDocuments = ({ clientId }) => {
   const [message, setMessage] = useState("");
 
   const accessToken = localStorage.getItem("accessToken");
-  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000"; // Use env variable
+  // const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000"; // Use env variable
 
   useEffect(() => {
     const fetchDocuments = async () => {
@@ -47,7 +48,7 @@ const UploadClientDocuments = ({ clientId }) => {
     }
 
     try {
-      const response = await axios.post(`${API_URL}/manage/upload-documents/${clientId}/`, formData, {
+      const response = await axios.post(`${API_URL}upload-documents/${clientId}/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${accessToken}`,

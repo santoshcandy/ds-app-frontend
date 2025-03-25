@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css"; // Animation library
+import { API_URL } from "../Config";
 
 const ClientList = () => {
   const [clients, setClients] = useState([]);
@@ -20,7 +21,7 @@ const ClientList = () => {
       }
 
       try {
-        const response = await axios.get("http://127.0.0.1:8000/manage/clients/", {
+        const response = await axios.get( `${API_URL}clients/`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
             "Content-Type": "application/json",
