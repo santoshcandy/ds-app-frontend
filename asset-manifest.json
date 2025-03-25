@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ds-app-frontend/static/css/main.729f18bf.css",
-    "main.js": "/ds-app-frontend/static/js/main.6570cfc7.js",
+    "main.js": "/ds-app-frontend/static/js/main.5c8e6904.js",
     "static/js/453.3bfc6565.chunk.js": "/ds-app-frontend/static/js/453.3bfc6565.chunk.js",
     "static/media/logo.png": "/ds-app-frontend/static/media/logo.9ed17e81df459ecebb58.png",
     "static/media/gold.jpg": "/ds-app-frontend/static/media/gold.915fc3e0d339069778f5.jpg",
@@ -10,14 +10,13 @@
     "static/media/quick.jpg": "/ds-app-frontend/static/media/quick.5e71fa9dfb3dc57ba234.jpg",
     "static/media/house.jpg": "/ds-app-frontend/static/media/house.7dd041712c52d2cc7bc6.jpg",
     "static/media/OIP.jpg": "/ds-app-frontend/static/media/OIP.290206a22b203bca66a3.jpg",
-    "static/media/logo.svg": "/ds-app-frontend/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/ds-app-frontend/index.html",
     "main.729f18bf.css.map": "/ds-app-frontend/static/css/main.729f18bf.css.map",
-    "main.6570cfc7.js.map": "/ds-app-frontend/static/js/main.6570cfc7.js.map",
+    "main.5c8e6904.js.map": "/ds-app-frontend/static/js/main.5c8e6904.js.map",
     "453.3bfc6565.chunk.js.map": "/ds-app-frontend/static/js/453.3bfc6565.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.729f18bf.css",
-    "static/js/main.6570cfc7.js"
+    "static/js/main.5c8e6904.js"
   ]
 }
