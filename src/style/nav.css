@@ -1,0 +1,30 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: #141414; /* Black background */
+    padding: 10px 0;
+    border-top: 2px solid gold; /* Gold border */
+  }
+  
+  .bottom-nav button {
+    background: none;
+    border: none;
+    color: gold;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .bottom-nav button:hover {
+    color: white;
+  }
+  
+  .bottom-nav button svg {
+    font-size: 24px;
+  }
+  

@@ -1,0 +1,108 @@
+/* Container */
+.client-container {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    background-color: white;  /* White background */
+    color: black;
+  }
+  
+  /* Table Styling */
+  .table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .client-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 15px gold;  /* Gold shadow */
+  }
+  
+  .client-table th,
+  .client-table td {
+    padding: 15px;
+    border: 1px solid gold;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .client-table th {
+    background-color: black;
+    color: gold;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 0 10px gold;  /* Gold glow */
+  }
+  
+  /* Clickable Row */
+  .clickable-row {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .clickable-row:hover {
+    /* background-color: rgba(255, 215, 0, 0.2); Light Gold hover */
+    /* transform: scale(1.02); */
+    box-shadow: 0 0 15px gold;
+  }
+  
+  /* Status Badge */
+  .status-badge {
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+    display: inline-block;
+  }
+  
+  .status-badge.pending {
+    background-color: gold;
+    color: black;
+    box-shadow: 0 0 10px gold;
+  }
+  
+  .status-badge.approved {
+    background-color: black;
+    color: gold;
+    box-shadow: 0 0 10px black;
+  }
+  
+  .status-badge.rejected {
+    background-color: red;
+    color: white;
+    box-shadow: 0 0 10px red;
+  }
+  
+  /* Buttons */
+  
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .client-table th,
+    .client-table td {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .clickable-row:hover {
+      transform: scale(1);
+    }
+  }
+  
+  /* Loading & Error Messages */
+  .loading,
+  .no-data {
+    font-size: 18px;
+    color: gold;
+    font-weight: bold;
+    margin-top: 20px;
+    text-shadow: 0 0 10px gold;
+  }
+  
