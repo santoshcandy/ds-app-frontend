@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+ 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
  
@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage';
 import ClientSide from './pages/ClientSide';
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {HashRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
 import EmployeeSide from './pages/EmployeeSide';
 import ClientDetails from './component/ClientDetails';
