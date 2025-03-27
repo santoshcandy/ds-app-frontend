@@ -14,6 +14,7 @@ import AddClient from './pages/AddClient';
 import RegisterPage from './pages/RegisterPage';
 import ManagerPage from './pages/ManagerPage';
 import RequestedPage from './pages/RequestedPage';
+import HomesPage from './pages/HomesPage';
 
  
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/any" element={<HomePage />} />
         <Route path="/apply" element={<ClientSide />} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/client/view" element={<EmployeeSide/>} />
@@ -31,6 +32,7 @@ function App() {
         <Route path="/manager-home" element={<ManagerPage/>} />
         
         <Route path="/clients/:status" element={< RequestedPage/>} />
+        <Route path="/home" element={<HomesPage/>} />
  
 
       </Routes>

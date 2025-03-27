@@ -1,0 +1,129 @@
+/* Global Fade-in Animation */
+body {
+    animation: pageFadeIn 1s ease-in-out;
+}
+
+/* Fade-in Keyframes */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* FAQ Container */
+.faq-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* FAQ Item (Before Scrolling) */
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    
+    /* Scroll animation */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When in View - Apply Animation */
+.faq-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Effect */
+.faq-item:hover {
+    background: #f8f9fa;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ripple Effect on Click */
+.faq-item:active {
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.2) 20%, transparent 70%);
+}
+
+/* FAQ Question */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* Rotating Plus Icon */
+.faq-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-icon.rotate {
+    transform: rotate(45deg);
+}
+
+/* FAQ Answer - Smooth Expand */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 10px;
+    font-size: 1rem;
+    color: #555;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+}
+
+/* Active FAQ - Expand Answer */
+.faq-item.active .faq-answer {
+    max-height: 150px;
+    opacity: 1;
+    padding: 10px;
+    animation: fadeSlide 0.4s ease-out;
+}
+
+/* Fade & Slide Animation */
+@keyframes fadeSlide {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-item {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .faq-answer {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-item {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .faq-answer {
+        font-size: 0.85rem;
+    }
+}

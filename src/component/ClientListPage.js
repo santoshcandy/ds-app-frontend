@@ -15,7 +15,7 @@ const ClientListPage = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await axios.get(`${API_URL}/manage/clients/`, {
+        const response = await axios.get(`${API_URL}clients/`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         setClients(response.data);
@@ -48,7 +48,7 @@ const ClientListPage = () => {
               <th>Name</th>
               <th>Contact</th>
               <th>Loan Purpose</th>
-              <th>  Status</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>

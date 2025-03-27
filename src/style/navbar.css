@@ -1,0 +1,174 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #004aad;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: -100px; /* Start hidden */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.8s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Show navbar when page loads */
+.navbar.show {
+    top: 0;
+}
+
+/* Shrink effect on scroll */
+.navbar.shrink {
+    padding: 10px 20px;
+    background: #003580;
+}
+
+/* Logo & Title */
+.logo-title {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.finance-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 1.2s ease-in-out forwards 0.5s;
+}
+
+/* Desktop View Navigation */
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline Effect */
+.nav-item a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: yellow;
+    bottom: -3px;
+    left: 50%;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-item a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Hover Effects */
+.nav-item a:hover {
+    color: yellow;
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 20px; 
+    top: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate icon when menu is open */
+.menu-toggle.open {
+    transform: rotate(90deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        z-index: 1000; /* Ensures it's on top */
+    }
+
+    /* Hide the nav links initially */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Initially hidden */
+        background-color: #004aad;
+        width: 250px;
+        height: 100vh;
+        text-align: center;
+        padding-top: 60px;
+        transition: right 0.5s ease-in-out;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Show nav links when menu is open */
+    .nav-links.open {
+        right: 0;
+        animation: slideInRight 0.5s ease-in-out;
+    }
+
+    .nav-item {
+        margin: 20px 0;
+    }
+
+    .nav-item a {
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+        color: white;
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: fadeIn 0.8s ease-in-out forwards 0.5s;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+}
