@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ds-app-frontend/static/css/main.3f95a138.css",
-    "main.js": "/ds-app-frontend/static/js/main.fa9c90ec.js",
+    "main.css": "/ds-app-frontend/static/css/main.6f241350.css",
+    "main.js": "/ds-app-frontend/static/js/main.f8c3a667.js",
     "static/js/453.dd81e8f4.chunk.js": "/ds-app-frontend/static/js/453.dd81e8f4.chunk.js",
     "static/media/home.png": "/ds-app-frontend/static/media/home.dab99f73bd8e2e2a5eae.png",
     "static/media/logo.png": "/ds-app-frontend/static/media/logo.9ed17e81df459ecebb58.png",
@@ -12,12 +12,12 @@
     "static/media/house.jpg": "/ds-app-frontend/static/media/house.7dd041712c52d2cc7bc6.jpg",
     "static/media/OIP.jpg": "/ds-app-frontend/static/media/OIP.290206a22b203bca66a3.jpg",
     "index.html": "/ds-app-frontend/index.html",
-    "main.3f95a138.css.map": "/ds-app-frontend/static/css/main.3f95a138.css.map",
-    "main.fa9c90ec.js.map": "/ds-app-frontend/static/js/main.fa9c90ec.js.map",
+    "main.6f241350.css.map": "/ds-app-frontend/static/css/main.6f241350.css.map",
+    "main.f8c3a667.js.map": "/ds-app-frontend/static/js/main.f8c3a667.js.map",
     "453.dd81e8f4.chunk.js.map": "/ds-app-frontend/static/js/453.dd81e8f4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f95a138.css",
-    "static/js/main.fa9c90ec.js"
+    "static/css/main.6f241350.css",
+    "static/js/main.f8c3a667.js"
   ]
 }
