@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../style/body.css";
 import gold from "../image/gold.jpg";
 import house from "../image/house.jpg";
@@ -17,9 +18,11 @@ const loanServices = [
 ];
 
 const BodyC = () => {
+  const navigate = useNavigate(); // Initialize navigate function
+
   useEffect(() => {
     const revealElements = document.querySelectorAll(".loan-card");
-    
+
     const revealOnScroll = () => {
       revealElements.forEach((el) => {
         if (el.getBoundingClientRect().top < window.innerHeight - 50) {
@@ -39,9 +42,13 @@ const BodyC = () => {
       <div className="loan-header">
         <div className="loan-text">
           <h2>Get a Loan Easily</h2>
-          <p>We provide hassle-free loans with quick approvals and low interest rates. Whether you need urgent cash, want to buy a new home, or fund a personal expense, we have tailored loan options to suit your needs.</p>
+          <p>Get hassle-free loans with quick approvals and low interest rates, tailored to your needs.</p>
         </div>
-        <button className="apply-btn">Apply Now</button>
+
+        {/* Apply Now Button with Navigation */}
+        <button className="apply-btn" onClick={() => navigate("/apply")}>
+          Apply Now
+        </button>
       </div>
 
       <div className="loan-services">

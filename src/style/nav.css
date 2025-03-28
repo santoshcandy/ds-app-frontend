@@ -1,30 +1,88 @@
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background: #141414; /* Black background */
-    padding: 10px 0;
-    border-top: 2px solid gold; /* Gold border */
+/* Navbar Styling */
+.navbar {
+  width: 100%;
+  background: #004aad; /* Blue Background */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(-30px); /* Start position for animation */
+}
+
+/* Navbar Appears Smoothly */
+.navbar.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Logo & Title Alignment (Left Side) */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Circular Logo */
+.logo-circle {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.finance-logo {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Navigation Links (Right Side) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.nav-item a:hover {
+  color: gold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+      padding: 12px 15px;
   }
-  
-  .bottom-nav button {
-    background: none;
-    border: none;
-    color: gold;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
+
+  .title {
+      font-size: 18px;
   }
-  
-  .bottom-nav button:hover {
-    color: white;
+
+  .nav-links {
+      gap: 15px;
   }
-  
-  .bottom-nav button svg {
-    font-size: 24px;
+
+  .nav-item a {
+      font-size: 16px;
   }
-  
+}

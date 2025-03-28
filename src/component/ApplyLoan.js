@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "animate.css";
-import "../style/applyloan.css"
+import "../style/applyloan.css";
 import { API_URL } from "../Config";
+
 const ApplyLoan = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -36,6 +38,14 @@ const ApplyLoan = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  // Scroll to form after reload or success message
+  useEffect(() => {
+    const formElement = document.getElementById("loan-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [success]); // Runs when success state changes
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -49,9 +59,18 @@ const ApplyLoan = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post( `${API_URL}client/apply/`, formData);
+      const response = await axios.post(`${API_URL}client/apply/`, formData);
       console.log("Loan application submitted:", response.data);
       setSuccess(true);
+
+      // Scroll to success message
+      setTimeout(() => {
+        const formElement = document.getElementById("loan-form");
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+
       setFormData({
         name: "",
         contact_number: "",
@@ -91,7 +110,6 @@ const ApplyLoan = () => {
     <div className="container my-5 animate__animated animate__fadeInUp">
       <h2 className="text-center mb-4">Loan Application Form</h2>
       {success && <div className="alert alert-success">Application Submitted Successfully!</div>}
-
       <form className="p-4 shadow rounded bg-white" onSubmit={handleSubmit}>
         <h5>Personal Details</h5>
         <div className="row">

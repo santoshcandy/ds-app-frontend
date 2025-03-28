@@ -1,12 +1,13 @@
 import React from 'react'
-import Header from '../component/Header'
+
 import ApplyLoan from '../component/ApplyLoan'
 import BottomNav from '../component/BottomNav'
+import Navbar from '../component/HeaderH'
 
 const AddClient = () => {
   return (
      <>
-     <Header/>
+     <Navbar/>
      <ApplyLoan/>
      <BottomNav/>
      </>

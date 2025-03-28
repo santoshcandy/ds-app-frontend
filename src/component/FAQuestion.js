@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../style/faq.css";
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const faqRef = useRef([]);
 
   const faqs = [
     { question: "What is EMI?", answer: "EMI (Equated Monthly Installment) is a fixed amount paid by a borrower to a lender every month until the loan is fully repaid." },
@@ -16,33 +17,42 @@ const FAQSection = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // ✅ FIX: Ensure all FAQ items are shown on page load
   useEffect(() => {
     const handleScroll = () => {
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          item.classList.add("show");
+      faqRef.current.forEach((item) => {
+        if (item) {
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 50) {
+            item.classList.add("show");
+          }
         }
       });
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    handleScroll(); // Run on initial render
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="faq-container">
-      <h2 className="faq-heading">Frequently Asked Questions</h2>
+      <h2>Frequently Asked Questions</h2>
       <div className="faq-list">
         {faqs.map((faq, index) => (
-          <div key={index} className={`faq-item ${openIndex === index ? 'active' : ''}`} onClick={() => toggleFAQ(index)}>
-            <div className="faq-question">
+          <div
+            key={index}
+            className={`faq-item ${openIndex === index ? "active" : ""} show`} // ✅ FIX: Always show items
+            ref={(el) => (faqRef.current[index] = el)}
+          >
+            <div className="faq-question" onClick={() => toggleFAQ(index)}>
               {faq.question}
-              <span className={`faq-icon ${openIndex === index ? 'rotate' : ''}`}>➕</span>
+              <span className="faq-icon">{openIndex === index ? "➖" : "➕"}</span>
             </div>
-            <div className="faq-answer">{faq.answer}</div>
+            <div className="faq-answer">
+              {faq.answer}
+            </div>
           </div>
         ))}
       </div>
