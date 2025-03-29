@@ -4,25 +4,25 @@ import { useNavigate } from "react-router-dom";
 import "../style/application.css";
 
 const ClientNav = () => {
-  const navigate = useNavigate();  // ✅ Navigation Hook
+  const navigate = useNavigate();
 
   return (
-    <nav className="client-nav">
-      <button onClick={() => navigate("/clients/pending")}>
+    <div className="client-nav">
+      <button className="pending" onClick={() => navigate("/clients/pending")}>
         <FaClipboardList />
-        <span>Requested Clients</span>
+        <span>Requested</span>
       </button>
 
-      <button onClick={() => navigate("/clients/proceeded")}>
+      <button className="procedural" onClick={() => navigate("/clients/proceeded")}>
         <FaTasks />
-        <span>Procedural Clients</span>
+        <span>Processing</span>
       </button>
 
-      <button onClick={() => navigate("/clients/approved")}>
+      <button className="approved" onClick={() => navigate("/clients/approved")}>
         <FaCheckCircle />
-        <span>Approved Clients</span>
+        <span>Approved</span>
       </button>
-    </nav>
+    </div>
   );
 };
 

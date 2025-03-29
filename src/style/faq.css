@@ -1,10 +1,14 @@
-/* FAQ Container */
-.faq-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+h2 {
+    background-color: #004aad; /* Blue background */
+    color: white; /* White text */
+    padding: 20px; /* Padding around the text */
+    text-align: center; /* Center align */
+    width: fit-content; /* Only as wide as the text */
+    margin: 20px auto; /* Center horizontally */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 24px; /* Default font size */
 }
+
 
 /* FAQ Item */
 .faq-item {

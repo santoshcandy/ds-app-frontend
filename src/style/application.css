@@ -4,8 +4,8 @@
   flex-direction: column; /* Stack buttons vertically */
   align-items: center;
   justify-content: center;
-  height: 80vh; /* Full screen height */
-  background: linear-gradient(135deg, #2c3e50, #34495e);
+  height: 100vh; /* Full screen height */
+  background: linear-gradient(135deg, #29aaf0, #19232e);
   text-align: center;
   padding: 20px;
   animation: fadeIn 0.6s ease-in-out;
@@ -13,7 +13,7 @@
 
 /* 🌟 Navigation Buttons */
 .client-nav button {
-  background: #f39c12;
+  background: #e16320;
   border: none;
   color: white;
   font-size: 18px;

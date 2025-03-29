@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // ✅ Added useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../Config";
+import "../style/EmployeeClientDetails.css";
 
 const ClientListPage = () => {
-  const { status } = useParams(); // ✅ Read the status from the URL
-  const navigate = useNavigate(); // ✅ Navigation Hook
+  const { status } = useParams();
+  const navigate = useNavigate();
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
   const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
@@ -25,49 +24,54 @@ const ClientListPage = () => {
         setLoading(false);
       }
     };
-
     fetchClients();
   }, [API_URL, accessToken]);
 
-  // ✅ Filter clients based on the status in the URL
   const filteredClients = clients.filter(client => client.approval_status === status);
 
   return (
-    <div className="client-container">
-      <h2>{status.charAt(0).toUpperCase() + status.slice(1)} Clients</h2>
-
+    <div className="employee-clients-container">
+      <h2 className="text-center">{status.charAt(0).toUpperCase() + status.slice(1)} Clients</h2>
       {loading ? (
         <p className="loading">Loading...</p>
       ) : filteredClients.length === 0 ? (
         <p className="no-data">No clients in this category.</p>
       ) : (
-        <table className="client-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Contact</th>
-              <th>Loan Purpose</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredClients.map(client => (
-              <tr 
-                key={client.id} 
-                className="clickable-row"
-                onClick={() => navigate(`/client/${client.id}`)} // ✅ Click event to navigate
-                style={{ cursor: "pointer" }} // ✅ Show pointer cursor
-              >
-                <td>{client.id}</td>
-                <td>{client.name}</td>
-                <td>{client.loan_purpose}</td>
-                <td>{client.expected_loan_amount}</td>
-                <td>{client.approval_status}</td>
+        <div className="table-responsive">
+          <table className="table table-bordered">
+            <thead className="table-primary">
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Loan Purpose</th>
+                <th>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredClients.map(client => (
+                <tr 
+                  key={client.id} 
+                  className="clickable-row"
+                  onClick={() => navigate(`/client/${client.id}`)}
+                >
+                  <td>{client.id}</td>
+                  <td>{client.name}</td>
+                  <td>{client.loan_purpose}</td>
+                  <td>{client.expected_loan_amount}</td>
+                  <td>
+                    <span className={`status-badge ${
+                      client.approval_status === "approved" ? "status-approved" :
+                      client.approval_status === "pending" ? "status-pending" : "status-rejected"
+                    }`}>
+                      {client.approval_status.charAt(0).toUpperCase() + client.approval_status.slice(1)}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

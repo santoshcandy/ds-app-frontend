@@ -1,88 +1,68 @@
-/* Navbar Styling */
-.navbar {
+/* Bottom Navigation Bar */
+.bottom-nav {
   width: 100%;
   background: #004aad; /* Blue Background */
   padding: 15px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
   opacity: 0;
-  transform: translateY(-30px); /* Start position for animation */
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-/* Navbar Appears Smoothly */
-.navbar.show {
+/* Show Navigation */
+.bottom-nav.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Logo & Title Alignment (Left Side) */
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Circular Logo */
-.logo-circle {
-  width: 45px;
-  height: 45px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.finance-logo {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-}
-
-.title {
-  font-size: 20px;
+/* Navigation Buttons */
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
   font-weight: bold;
-  color: white;
-}
-
-/* Navigation Links (Right Side) */
-.nav-links {
-  list-style: none;
   display: flex;
-  gap: 20px;
-}
-
-.nav-item a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
   transition: color 0.3s ease-in-out;
 }
 
+/* Gold Icons */
+.nav-icon {
+  font-size: 20px;
+  color: gold; /* Gold Color */
+  transition: transform 0.3s ease-in-out;
+}
+
 /* Hover Effect */
-.nav-item a:hover {
+.bottom-nav button:hover {
   color: gold;
+}
+
+.bottom-nav button:hover .nav-icon {
+  transform: scale(1.2); /* Slight zoom effect */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .navbar {
-      padding: 12px 15px;
+  .bottom-nav {
+    padding: 12px 10px;
   }
 
-  .title {
-      font-size: 18px;
+  .bottom-nav button {
+    font-size: 14px;
   }
 
-  .nav-links {
-      gap: 15px;
-  }
-
-  .nav-item a {
-      font-size: 16px;
+  .nav-icon {
+    font-size: 18px;
   }
 }

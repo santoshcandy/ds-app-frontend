@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaUserPlus, FaUsers, FaHome } from "react-icons/fa";
 import "../style/nav.css";
 
 const BottomNav = () => {
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true); // Triggers animation when component mounts
+  }, []);
 
   return (
-    <div className="bottom-nav">
+    <div className={`bottom-nav ${isVisible ? "show" : ""}`}>
       <button onClick={() => navigate("/")}>
         <FaHome /> <span>Home</span>
       </button>

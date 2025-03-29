@@ -15,6 +15,15 @@ import RegisterPage from './pages/RegisterPage';
 import ManagerPage from './pages/ManagerPage';
 import RequestedPage from './pages/RequestedPage';
 import HomesPage from './pages/HomesPage';
+import EmployeeClients from './component/EmployeeClients ';
+// import AsiignedClientPage from './pages/AsiignedClientPage';
+import EmployeeClientDetails from './component/EmployeeClientDetails';
+import ManageEmployee from './pages/ManageEmployee';
+import EmployeeC from './pages/EmployeeC';
+import ManagerClientList from './pages/ManagerClientList';
+import ManagerAllListPage from './pages/ManagerAllListPage';
+// import EmployeeClientPage from './pages/EmployeeClientPage';
+ 
 
  
 
@@ -33,6 +42,11 @@ function App() {
         
         <Route path="/clients/:status" element={< RequestedPage/>} />
         <Route path="/home" element={<HomesPage/>} />
+        <Route path="/employee" element={< EmployeeC/>} />
+        <Route path="/employee/:id" element={<ManageEmployee/>} /> 
+        <Route path="/employee/client/:id" element={< ManagerClientList/>} /> 
+        <Route path="/manager/view/all" element={< ManagerAllListPage/>} /> 
+
  
 
       </Routes>
