@@ -1,83 +1,114 @@
-/* Hero Section */ 
-.hero-section {
-  background: linear-gradient(to right, #007bff, #6f42c1, #e83e8c);
-  height: 40vh;
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styling */
+.card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center align the heading */
+}
+
+.card h2 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Personal Details - Centered but Structured */
+.details-grid {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.details-grid div {
+  display: flex;
   justify-content: center;
-  position: relative;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 1.5s ease-in-out;
-  border-radius: 30px;
+  width: 100%;
 }
 
-.hero-section .overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 10px;
+.details-grid strong {
+  width: 120px; /* Fixed width for labels to align them */
+  text-align: left; /* Ensure labels are left-aligned */
+  display: inline-block;
 }
 
-/* Loan Cards */
-.loan-card-container {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Attendance History - Row Wise Table */
+.attendance-history table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
-.loan-card-container.slide-in {
-  opacity: 1;
-  transform: translateX(0);
+.attendance-history th, 
+.attendance-history td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
 }
 
-.loan-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
+.attendance-history th {
+  background-color: #f4f4f4;
 }
 
-.loan-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+/* Attendance Status Colors */
+.present {
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-/* Apply Now Button */
-.btn-primary {
-  background: linear-gradient(to right, #007bff, #6f42c1, #e83e8c);
-  border: none;
-  padding: 10px 25px;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  border-radius: 50px;
+.absent {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(to right, #e83e8c, #6f42c1, #007bff);
-  transform: scale(1.1);
+/* Target Completion - Column & Row Wise */
+.target-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 16px;
+  color: #555;
+  justify-items: center; /* Center text inside grid items */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-section {
-      height: 30vh;
-  }
-  .hero-section .overlay {
-      padding: 20px;
-  }
-  .loan-card {
-      margin-bottom: 20px;
-  }
-  .btn-primary {
-      font-size: 1rem;
-      padding: 8px 20px;
-  }
+/* Target Completion Colors */
+.completion {
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+.high {
+  color: green;
 }
 
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+.low {
+  color: red;
+}
 
+/* Error & Loading Messages */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.loading {
+  color: gray;
+}

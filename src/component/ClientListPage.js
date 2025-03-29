@@ -53,7 +53,7 @@ const ClientListPage = () => {
                 <tr 
                   key={client.id} 
                   className="clickable-row"
-                  onClick={() => navigate(`/client/${client.id}`)}
+                  onClick={() => navigate(`/manager/client/${client.id}`)}
                 >
                   <td>{client.id}</td>
                   <td>{client.name}</td>

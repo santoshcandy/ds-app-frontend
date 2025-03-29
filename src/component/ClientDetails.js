@@ -88,7 +88,7 @@ const ClientDetails = () => {
     <>
       <Container maxWidth="md">
         <Typography variant="h4" gutterBottom>
-          Client Details - {client.name}
+          Client  - {client.name}
         </Typography>
 
         <Grid container spacing={2}>

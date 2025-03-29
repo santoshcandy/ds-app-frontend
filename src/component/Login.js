@@ -34,6 +34,7 @@ const Login = () => {
         localStorage.setItem("refreshToken", response.data.tokens.refresh);
         localStorage.setItem("user", JSON.stringify(response.data.user));
         localStorage.setItem("userID", response.data.user.id);
+        localStorage.setItem("role", response.data.user.role);
         alert("Login successful!");
         window.location.href = "/client/view"; // Redirect after login
       } else {
