@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BottomNav from "./BottomNav"; // Employee Navigation
-import ManagerNav from "./ManagerNav"; // Manager Navigation
+import ManagerNav from "./ManagerNav";
+ 
 
 const Nav = () => {
     const [role, setRole] = useState(null);
@@ -16,7 +17,7 @@ const Nav = () => {
         return null; // Hide navigation if role is not employee or manager
     }
 
-    return role === "employee" ? <BottomNav /> : <ManagerNav />;
+    return role === "employee" ? <BottomNav /> : <ManagerNav/>;
 };
 
 export default Nav;

@@ -9,7 +9,7 @@ const AddClient = () => {
      <>
     
      <ApplyLoan/>
-     <ManagerNav/>
+   
      </>
   )
 }

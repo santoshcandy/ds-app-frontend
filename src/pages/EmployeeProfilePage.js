@@ -9,7 +9,7 @@ const EmployeeProfilePage = () => {
      <AttendanceForm/>
      <PerformanceDashboard/>
 
-      <BottomNav/>
+      
     </div>
   )
 }

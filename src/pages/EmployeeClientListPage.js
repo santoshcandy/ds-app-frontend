@@ -6,7 +6,7 @@ const EmployeeClientListPage = () => {
   return (
     <div>
     <RequestedPage/>
-    <BottomNav/>
+    
     </div>
   )
 }
