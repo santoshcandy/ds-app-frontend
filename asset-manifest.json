@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ds-app-frontend/static/css/main.b541ba40.css",
-    "main.js": "/ds-app-frontend/static/js/main.35a8efa5.js",
+    "main.js": "/ds-app-frontend/static/js/main.d7ee9ef5.js",
     "static/js/453.dd81e8f4.chunk.js": "/ds-app-frontend/static/js/453.dd81e8f4.chunk.js",
     "static/media/home.png": "/ds-app-frontend/static/media/home.dab99f73bd8e2e2a5eae.png",
     "static/media/logo.png": "/ds-app-frontend/static/media/logo.9ed17e81df459ecebb58.png",
@@ -13,11 +13,11 @@
     "static/media/OIP.jpg": "/ds-app-frontend/static/media/OIP.290206a22b203bca66a3.jpg",
     "index.html": "/ds-app-frontend/index.html",
     "main.b541ba40.css.map": "/ds-app-frontend/static/css/main.b541ba40.css.map",
-    "main.35a8efa5.js.map": "/ds-app-frontend/static/js/main.35a8efa5.js.map",
+    "main.d7ee9ef5.js.map": "/ds-app-frontend/static/js/main.d7ee9ef5.js.map",
     "453.dd81e8f4.chunk.js.map": "/ds-app-frontend/static/js/453.dd81e8f4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b541ba40.css",
-    "static/js/main.35a8efa5.js"
+    "static/js/main.d7ee9ef5.js"
   ]
 }
