@@ -41,7 +41,7 @@ const Register = () => {
         setError("Invalid credentials. Please try again.");
       }
     } catch (error) {
-      setError("Login failed. Please check your details.");
+      setError("Register failed. Please check your details.");
     } finally {
       setLoading(false);
     }

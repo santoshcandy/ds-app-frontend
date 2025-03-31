@@ -45,6 +45,7 @@ function App() {
         <Route path="/apply" element={<ClientSide />} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="*" element={<HomesPage/>} />
+        <Route path="/register" element={<RegisterPage/>} />
 
     <Route element={<ProtectedRoute/>}>
 
@@ -53,7 +54,6 @@ function App() {
         <Route path="/client/:id" element={<ClientDetails/>} />
         <Route path="/add-client" element={<AddClient/>} />
         <Route path="/employee/profile" element={<EmployeeProfilePage/>} />
-        <Route path="/register" element={<RegisterPage/>} />
         <Route path="/employee/clients/:status" element={< EmployeeClientListPage/>} />
         <Route path="/employee/client/:id" element={<EmployeeClient/>} />
 
