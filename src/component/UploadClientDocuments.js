@@ -109,7 +109,7 @@ const UploadClientDocuments = ({ clientId }) => {
             {existingDocs[doc] ? (
               <>
                 <img 
-                  src={`http://127.0.0.1:8000${existingDocs[doc]}`} 
+                  src={`https://dsappbe.pythonanywhere.com${existingDocs[doc]}`} 
                   alt={doc} 
                   width="330" 
                   onError={(e) => (e.target.style.display = "none")}

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../Config";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const Register = () => {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Use navigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +38,7 @@ const Register = () => {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         localStorage.setItem("userID", response.data.user.id);
         alert("Login successful!");
-        window.location.href = "/client/view"; // Redirect after login
+        navigate("/login"); // Redirect after login
       } else {
         setError("Invalid credentials. Please try again.");
       }
