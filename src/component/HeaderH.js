@@ -21,7 +21,7 @@ const Navbar = () => {
           <div className="logo-circle">
             <img src={home} alt="DS Finance Logo" className="finance-logo" />
           </div>
-          <span className="title">DS Finance</span>
+          <span className="title">DS Portal</span>
         </div>
 
         {/* Navigation Links (Right Side) */}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./EmployeePerformanceDetails.css";
+import { API_URL } from "../Config";
 
 const EmployeePerformanceDetails = () => {
   const { employeeId } = useParams();
@@ -12,7 +13,7 @@ const EmployeePerformanceDetails = () => {
       const token = localStorage.getItem("accessToken");
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/manage/targets/performance?employee_id=${employeeId}`,
+          `${API_URL}/targets/performance?employee_id=${employeeId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

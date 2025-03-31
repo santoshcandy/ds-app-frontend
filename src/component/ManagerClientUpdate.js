@@ -18,7 +18,7 @@ import UploadClientDocuments from "./UploadClientDocuments";
 import BottomNav from "./BottomNav";
 import { API_URL } from "../Config";
 
-const ClientDetails = () => {
+const ManagerClientUpdate = () => {
   const { id } = useParams(); // Get client ID from URL
   const [client, setClient] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -51,7 +51,7 @@ const ClientDetails = () => {
   // Update client details
   const handleUpdate = () => {
     axios
-      .patch(`${API_URL}/clients/${id}/update/`, client, {
+      .patch(`${API_URL}/clients/${id}/manager-update/`, client, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(() => {
@@ -86,7 +86,7 @@ const ClientDetails = () => {
 
   return (
     <>
-      <Container maxWidth="md">
+      <Container maxWidth="md" className="mb-5">
         <Typography variant="h4" gutterBottom>
           Client  - {client.name}
         </Typography>
@@ -138,7 +138,6 @@ const ClientDetails = () => {
           )}
         </Grid>
 
-        <UploadClientDocuments clientId={id} />
 
         <Box mt={3} mb={10}>
           <Button variant="contained" color="primary" onClick={handleUpdate} sx={{ mr: 2 }}>
@@ -155,10 +154,12 @@ const ClientDetails = () => {
           onClose={() => setOpenSnackbar(false)}
           message={message}
         />
+    <UploadClientDocuments clientId={id} />
       </Container>
       <BottomNav />
     </>
   );
 };
 
-export default ClientDetails;
+export default ManagerClientUpdate;
+

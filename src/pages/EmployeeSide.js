@@ -9,7 +9,7 @@ const EmployeeSide = () => {
     
    
     <ClientList/>
-    
+    <BottomNav/> 
     </>
   )
 }

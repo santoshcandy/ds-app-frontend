@@ -31,7 +31,7 @@ const ManagerEmployeeClientDetails = () => {
   // Fetch client details
   useEffect(() => {
     axios
-      .get(`${API_URL}clients/${id}/`, {
+      .get(`${API_URL}/clients/${id}/`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then((response) => {
@@ -52,7 +52,7 @@ const ManagerEmployeeClientDetails = () => {
   // Update client details
   const handleUpdate = () => {
     axios
-      .patch(`${API_URL}clients/${id}/update/`, client, {
+      .patch(`${API_URL}/clients/${id}/update/`, client, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(() => {
@@ -69,7 +69,7 @@ const ManagerEmployeeClientDetails = () => {
   // Request approval
   const handleApprovalRequest = () => {
     axios
-      .post(`${API_URL}clients/${id}/request-approval/`, {}, {
+      .post(`${API_URL}/clients/${id}/request-approval/`, {}, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then(() => {

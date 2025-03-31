@@ -8,7 +8,7 @@ const EmployeeAddClientPage = () => {
      <>
  
      <AddClient/>
-     
+     <BottomNav/>
      </>
   )
 }

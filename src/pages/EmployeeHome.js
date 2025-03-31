@@ -8,7 +8,7 @@ const EmployeeHome = () => {
   return (
     <>
     <EmployeeHomeOption/>
-     
+    <BottomNav/>
     </>
   )
 }

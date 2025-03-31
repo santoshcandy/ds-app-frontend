@@ -21,7 +21,7 @@ const ClientList = () => {
       }
 
       try {
-        const response = await axios.get( `${API_URL}clients/`, {
+        const response = await axios.get( `${API_URL}/clients/`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
             "Content-Type": "application/json",

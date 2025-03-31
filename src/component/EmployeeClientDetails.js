@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import "../style/EmployeeClientDetails.css"; // Ensure the CSS file is linked
+import { API_URL } from "../Config";
 
 const EmployeeClientDetails = () => {
   const { id } = useParams(); // Get employee ID from URL
@@ -23,7 +24,7 @@ const EmployeeClientDetails = () => {
 
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/manage/manage/employees/${id}/clients/`,
+          `${API_URL}/manage/employees/${id}/clients/`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

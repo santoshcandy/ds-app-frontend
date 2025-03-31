@@ -27,7 +27,7 @@ const Register = () => {
     setError("");
 
     try {
-      const response = await axios.post(` ${API_URL}register/`, formData);
+      const response = await axios.post(` ${API_URL}/register/`, formData);
 
       if (response.data.tokens) {
         // Store tokens & user details in localStorage

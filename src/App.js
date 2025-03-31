@@ -30,6 +30,7 @@ import EmployeeHome from './pages/EmployeeHome';
 import EmployeeClientListPage from './pages/EmployeeClientListPage';
 import EmployeeClient from './component/EmployeeClient';
 import Nav from './component/Nav';
+import ProtectedRoute from './ProtectedRoute';
 // import EmployeeClientPage from './pages/EmployeeClientPage';
  
 
@@ -40,9 +41,13 @@ function App() {
     <Router>
       <Navbar/>
       <Routes>
-        <Route path="/any" element={<HomePage />} />
+        {/* <Route path="" element={<HomePage />} /> */}
         <Route path="/apply" element={<ClientSide />} />
         <Route path="/login" element={<LoginPage/>} />
+        <Route path="*" element={<HomesPage/>} />
+
+    <Route element={<ProtectedRoute/>}>
+
         <Route path="/client/view" element={<EmployeeSide/>} />
         <Route path="/employee/home" element={<EmployeeHome/>} />
         <Route path="/client/:id" element={<ClientDetails/>} />
@@ -57,7 +62,6 @@ function App() {
         <Route path="/manager-home" element={<ManagerPage/>} />
         
         <Route path="/clients/:status" element={< RequestedPage/>} />
-        <Route path="/home" element={<HomesPage/>} />
         <Route path="/employee" element={< EmployeeC/>} />
         <Route path="/employee/:id" element={<ManageEmployee/>} /> 
         <Route path="/employee/client/:id" element={< ManagerClientList/>} /> 
@@ -65,6 +69,7 @@ function App() {
         <Route path="/add-client-e" element={<EmployeeAddClientPage/>} />
 
         <Route path="/manager/client/:id" element={<ManagerClientDetails/>} />
+    </Route>
 
       </Routes>
       <Nav/>

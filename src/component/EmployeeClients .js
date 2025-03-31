@@ -3,6 +3,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "../style/EmployeeC.css";
+import { API_URL } from "../Config";
 
 const EmployeeClients = () => {
   const [clients, setClients] = useState([]);
@@ -21,7 +22,7 @@ const EmployeeClients = () => {
       }
 
       try {
-        const response = await axios.get("http://127.0.0.1:8000/manage/manage/employees/", {
+        const response = await axios.get( `${API_URL}/manage/employees/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

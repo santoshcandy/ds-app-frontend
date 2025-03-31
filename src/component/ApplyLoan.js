@@ -59,7 +59,7 @@ const ApplyLoan = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API_URL}client/apply/`, formData);
+      const response = await axios.post(`${API_URL}/client/apply/`, formData);
       console.log("Loan application submitted:", response.data);
       setSuccess(true);
 

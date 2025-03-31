@@ -14,7 +14,7 @@ const UploadClientDocuments = ({ clientId }) => {
   useEffect(() => {
     const fetchDocuments = async () => {
       try {
-        const response = await axios.get(`${API_URL}/manage/client-documents/${clientId}/`, {
+        const response = await axios.get(`${API_URL}/client-documents/${clientId}/`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         setExistingDocs(response.data);
@@ -36,7 +36,6 @@ const UploadClientDocuments = ({ clientId }) => {
     const file = e.target.files[0];
     if (!file) return;
     
-    // ✅ Debug: Log file information
     console.log(`🟡 Selected file for ${e.target.name}:`, file.name, file.size);
 
     setFiles((prevFiles) => ({ ...prevFiles, [e.target.name]: file }));
@@ -53,7 +52,6 @@ const UploadClientDocuments = ({ clientId }) => {
       }
     }
 
-    // ✅ Debug: Print FormData before sending
     console.log("🔵 FormData contents:");
     for (let pair of formData.entries()) {
       console.log(pair[0], pair[1]);
@@ -75,15 +73,18 @@ const UploadClientDocuments = ({ clientId }) => {
 
       console.log("✅ Upload Success:", response.data);
       setMessage("Documents uploaded successfully!");
-      setFiles({}); // Reset file state
-      setExistingDocs(response.data); // Update UI with new docs
+      setFiles({}); 
+      setExistingDocs(response.data);
+      
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000); // ✅ Refresh page after 3 seconds
     } catch (error) {
       console.error("❌ Upload Failed:", error);
       setMessage("Failed to upload documents");
       if (error.response?.status === 401) {
         alert("Session expired. Please log in again.");
         localStorage.clear();
-        window.location.href = "/login";
       }
     }
   };
@@ -108,9 +109,9 @@ const UploadClientDocuments = ({ clientId }) => {
             {existingDocs[doc] ? (
               <>
                 <img 
-                  src={`${API_URL}/${existingDocs[doc]}`} 
+                  src={`http://127.0.0.1:8000${existingDocs[doc]}`} 
                   alt={doc} 
-                  width="150" 
+                  width="330" 
                   onError={(e) => (e.target.style.display = "none")}
                 />
                 <p>Change File:</p>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../Config";
 
 const SetTarget = () => {
   const [target_clients, setTarget] = useState("");
@@ -16,7 +17,7 @@ const SetTarget = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/manage/targets/",
+        `${API_URL}/targets/`,
         { target_clients },
         {
           headers: {

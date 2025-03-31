@@ -87,8 +87,8 @@ const EMICalculator = () => {
           <Slider
             value={interestRate}
             onChange={(e, newValue) => setInterestRate(newValue)}
-            min={2}
-            max={25}
+            min={16}
+            max={40}
             step={0.5}
           />
         </div>

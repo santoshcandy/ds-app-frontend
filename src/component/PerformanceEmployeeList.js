@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../style/PerformanceEmployeeList.css";
+import { API_URL } from "../Config";
 
 const PerformanceEmployeeList = () => {
   const [employees, setEmployees] = useState([]);
@@ -12,7 +13,7 @@ const PerformanceEmployeeList = () => {
     const fetchData = async () => {
       const token = localStorage.getItem("accessToken");
       try {
-        const response = await axios.get("http://127.0.0.1:8000/manage/targets/performance/", {
+        const response = await axios.get( `${API_URL}/targets/performance/`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setEmployees(response.data);

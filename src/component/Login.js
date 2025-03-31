@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../Config";
 
 const Login = () => {
@@ -14,6 +15,7 @@ const Login = () => {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Use navigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +28,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await axios.post( `${API_URL}login/`, formData);
+      const response = await axios.post(`${API_URL}/login/`, formData);
 
       if (response.data.tokens) {
         // Store tokens & user details in localStorage
@@ -35,8 +37,17 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         localStorage.setItem("userID", response.data.user.id);
         localStorage.setItem("role", response.data.user.role);
+
         alert("Login successful!");
-        window.location.href = "/client/view"; // Redirect after login
+
+        // Redirect based on role
+        if (response.data.user.role === "employee") {
+          navigate("/client/view");
+        } else if (response.data.user.role === "manager") {
+          navigate("/manager-home");
+        } else {
+          setError("Invalid role. Please contact admin.");
+        }
       } else {
         setError("Invalid credentials. Please try again.");
       }

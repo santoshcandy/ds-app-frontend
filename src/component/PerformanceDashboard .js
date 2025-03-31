@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../style/style.css"; // Import the CSS file
+import { API_URL } from "../Config";
 
 const PerformanceDashboard = () => {
     const [performance, setPerformance] = useState(null);
@@ -11,7 +12,7 @@ const PerformanceDashboard = () => {
     useEffect(() => {
         const fetchPerformance = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/manage/targets/my-performance/", {
+                const response = await axios.get(`${API_URL}/targets/my-performance/`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
