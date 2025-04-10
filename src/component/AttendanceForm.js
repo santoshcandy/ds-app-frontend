@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style/style.css"; // Import the CSS file
+import { API_URL } from "../Config";
 
 const AttendanceForm = () => {
     const [attendance, setAttendance] = useState(null);
@@ -14,7 +15,7 @@ const AttendanceForm = () => {
     useEffect(() => {
         const fetchAttendance = async () => {
             try {
-                const response = await fetch("http://127.0.0.1:8000/manage/attendance/", {
+                const response = await fetch(`${API_URL}/attendance/`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -40,7 +41,7 @@ const AttendanceForm = () => {
     // Mark Attendance
     const markAttendance = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/manage/attendance/", {
+            const response = await fetch(`${API_URL}/attendance/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

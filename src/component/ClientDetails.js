@@ -18,6 +18,7 @@ import UploadClientDocuments from "./UploadClientDocuments";
 import BottomNav from "./BottomNav";
 import { API_URL } from "../Config";
 
+
 const ClientDetails = () => {
   const { id } = useParams(); // Get client ID from URL
   const [client, setClient] = useState(null);
